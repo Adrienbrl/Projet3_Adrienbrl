@@ -1,28 +1,29 @@
-const gallery = document.querySelector(".gallery");
+const galleryGrid = document.querySelector(".gallery");
 
-let tonApi = "http://localhost:5678/api/works";
+const worksApi = "http://localhost:5678/api/works";
 
 async function getWorks() {
-    try {
-        response = await fetch(tonApi);
-        works = await response.json();
+  try {
+    const response = await fetch(worksApi);
+    const data = await response.json();
 
-        for (let i in works) {
-            const figure = document.createElement("figure");
-            const img = document.createElement("img");
-            const figcaption = document.createElement("figcaption"); 
+    for (let i in data) {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const figcaption = document.createElement("figcaption");
 
-            img.setAttribute("src", works[i].imageUrl);
-            img.setAttribute("alt", works[i].title);
-            img.setAttribute("cross-origin", "anonymous");
+      figure.setAttribute("class", "works");
+      img.setAttribute("src", data[i].imageUrl);
+      img.setAttribute("alt", data[i].title);
+      img.setAttribute("crossorigin", "anonymous");
+      figcaption.innerHTML = data[i].title;
 
-            figcaption.innerHTML = works[i].title;
+      figure.append(img, figcaption);
+      galleryGrid.append(figure);
 
-            figure.append(img, figcaption);
-            gallery.append(figure);
-               }
+    }
   } catch (error) {
-    console.error(" Attention il y a une erreur");
+    console.error("Warning : " + error);
   }
 }
 
