@@ -190,8 +190,9 @@ h2 {
 }
 
 .filters-btn:hover {
-  background-color: #1d6154;
+  background-color: #8eafa6;
   color: white;
+  border: 1px solid #8eafa6;
 }
 
 nav ul {
@@ -207,6 +208,11 @@ nav li {
 
 li:hover {
   color: #b1663c;
+}
+
+.active {
+  color: white;
+  background-color: #1d6154;
 }
 
 #introduction {

@@ -1,3 +1,8 @@
+const figures = [];
+
+const filtersbtn = document.querySelectorAll(".filters-btn");
+const all = document.querySelector(".all");
+
 const galleryGrid = document.querySelector(".gallery");
 
 const worksApi = "http://localhost:5678/api/works";
@@ -13,6 +18,7 @@ async function getWorks() {
       const figcaption = document.createElement("figcaption");
 
       figure.setAttribute("class", "works");
+      figure.setAttribute("data-category-id", data[i].category.id);
       img.setAttribute("src", data[i].imageUrl);
       img.setAttribute("alt", data[i].title);
       img.setAttribute("crossorigin", "anonymous");
@@ -20,6 +26,8 @@ async function getWorks() {
 
       figure.append(img, figcaption);
       galleryGrid.append(figure);
+
+      figures.push(figure)
 
     }
   } catch (error) {
