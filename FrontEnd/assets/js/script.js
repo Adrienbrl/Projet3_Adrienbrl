@@ -1,6 +1,6 @@
 const figures = [];
 
-const filtersbtn = document.querySelectorAll(".filters-btn");
+const filtersBtn = document.querySelectorAll(".filters-btn");
 const all = document.querySelector(".all");
 
 const galleryGrid = document.querySelector(".gallery");
@@ -18,7 +18,7 @@ async function getWorks() {
       const figcaption = document.createElement("figcaption");
 
       figure.setAttribute("class", "works");
-      figure.setAttribute("data-category-id", data[i].category.id);
+      figure.setAttribute("class", data[i].category.name);
       img.setAttribute("src", data[i].imageUrl);
       img.setAttribute("alt", data[i].title);
       img.setAttribute("crossorigin", "anonymous");
@@ -36,3 +36,27 @@ async function getWorks() {
 }
 
 getWorks();
+
+
+
+
+
+
+for (let btn of filtersBtn) {
+   btn.addEventListener("click", function () {
+    for (let e of filtersBtn) {
+        e.classList.remove("active");
+    }
+    btn.classList.add("active");
+
+    for (let figure of figures){
+      console.log(figure.getAttribute('class'),btn.getAttribute("class").includes(figure.getAttribute('class')))
+    if (btn.getAttribute("class").includes(figure.getAttribute('class'))){
+        figure.style.display="block"
+    } else if (btn=== all){ 
+        figure.style.display="block"
+    } else{figure.style.display="none"}
+  }
+    })
+
+}
