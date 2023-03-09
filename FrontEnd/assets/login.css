@@ -33,6 +33,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -151,6 +152,7 @@ button[type="submit"] {
   text-align: center;
   border-radius: 60px;
   border: none;
+  cursor: pointer;
 }
 
 footer nav ul li {

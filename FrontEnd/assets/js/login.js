@@ -1,7 +1,6 @@
 const formulaire = document.querySelector("form");
-const email = document.getElementById ("mail");
-const password = document.getElementById ("password");
-const errorConnect =document.querySelector (".error-connect");
+const emailInput = document.getElementById ("email");
+const passwordInput = document.getElementById ("password");
 
 formulaire.addEventListener("submit", async function(event){
     event.preventDefault()
@@ -14,8 +13,8 @@ formulaire.addEventListener("submit", async function(event){
         "Content-Type": "application/json",
       },
       body : JSON.stringify({
-        email: email.value,
-        password: password.value,
+        email: emailInput.value,
+        password: passwordInput.value,
       }),
     };
     try {
@@ -24,10 +23,10 @@ formulaire.addEventListener("submit", async function(event){
         const data = await response.json();
         sessionStorage.setItem("token", data.token);
         location.href = "index.html";
-      } if (response.status === 401) {
-          errorConnect.console.log("Mot de passe incorrect");
+      } else if (response.status === 401) {
+          console.log("Mot de passe incorrect");
       }   else if (response.status === 404) {
-          errorConnect.console.log("Mot de passe et/ou identifiant incorrect");
+          console.log("Mot de passe et/ou identifiant incorrect");
       }
     } catch (error) {
       console.error("Warning : " + error);
