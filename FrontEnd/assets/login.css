@@ -1,3 +1,43 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 body {
   max-width: 1140px;
   margin: 0 auto;
@@ -100,15 +140,17 @@ footer nav ul {
   text-align: center;
 }
 
-input[type="submit"] {
+button[type="submit"] {
   font-family: "Syne";
   font-weight: 700;
   color: white;
   background-color: #1d6154;
-  margin: 2em auto;
+  padding: 20px;
+  margin: 40px 0 25px;
   width: 200px;
   text-align: center;
   border-radius: 60px;
+  border: none;
 }
 
 footer nav ul li {
