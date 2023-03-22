@@ -20,7 +20,12 @@
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><a href="login.html">login</a></li>
+          <li class="login-text">
+            <a href="login.html">login</a>
+          </li>
+          <li class="logout-text">
+            <a onclick="logout()">logout</a>
+          </li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -49,8 +54,12 @@
           </p>
         </article>
       </section>
+      <!--Boutons catégories-->
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="project-flex">
+          <h2>Mes Projets</h2>
+          <button class="project-modification-text open-modal">Modifier</button>
+        </div>
         <div class="filters-projects">
           <button class="filters-btn all active Tous">Tous</button>
           <button class="filters-btn Objets">Objets</button>
@@ -59,8 +68,9 @@
             Hôtels & restaurants
           </button>
         </div>
-        <div class="gallery"></div>
+        <div class="gallery"><!--images de l'api--></div>
       </section>
+      <!--formulaire de contact-->
       <section id="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
@@ -76,6 +86,28 @@
       </section>
     </main>
 
+    <!--modale galerie photo-->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h3>Galerie Photo</h3>
+        <div class="gallery-flex-modal">
+          <div class="container-img-modal">
+            <!--images de l'api-->
+          </div>
+        </div>
+        <hr />
+        <button class="add-work">Ajouter une photo</button>
+        <button class="delete-work">Supprimer la galerie</button>
+        <button class="close-modal">Fermer la modal</button>
+      </div>
+      <form>
+        <input type="file" id="image" name="image" />
+        <input type="text" id="title" name="title" placeholder="Titre" />
+        <div id="category"></div>
+        <p type="submit" onclick="envoyerImage()">Envoyer</p>
+      </form>
+      <div id="error"></div>
+    </div>
     <footer>
       <nav>
         <ul>
@@ -84,5 +116,6 @@
       </nav>
     </footer>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/modal.js"></script>
   </body>
 </html>

@@ -145,6 +145,45 @@ header nav ul li img {
   width: 27px;
 }
 
+.project-flex {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.project-modification-text {
+  margin-left: 50px;
+}
+
+.container-img-modal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#modal > div > div > div > figure {
+  width: calc(100% / 5);
+  box-sizing: border-box;
+}
+
+#modal > div > div > div > figure > img {
+  max-width: 87%;
+  height: auto;
+}
+
+#error {
+  display: none;
+  color: red;
+  margin-top: 10px;
+}
+
+li {
+  cursor: pointer;
+}
+
+.logout-text {
+  display: none;
+}
+
 section {
   margin: 50px 0;
 }
@@ -174,7 +213,7 @@ h2 {
 .filters-projects {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .filters-btn {
@@ -317,4 +356,28 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  display: none;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  padding: 25px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.modal-content {
+  padding: 15px;
+  background: white;
+  width: 80%;
+}
+
+.modal .modal-content .edit-gallery-grid {
+  width: 50%;
 }

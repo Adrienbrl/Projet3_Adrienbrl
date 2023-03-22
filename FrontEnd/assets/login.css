@@ -153,6 +153,7 @@ button[type="submit"] {
   border-radius: 60px;
   border: none;
   cursor: pointer;
+  align-self: center;
 }
 
 footer nav ul li {
