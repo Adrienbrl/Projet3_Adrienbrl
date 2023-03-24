@@ -20,7 +20,7 @@ if(sessionStorage.getItem("token")) {
   loginText.style.display = "block"
   logoutText.style.display = "none"
   openModalText.style.display = "none"
-  filtersProjects.style.display = 'block'
+  filtersProjects.style.display = 'flex'
 }
 
 const logout = () => {
@@ -61,6 +61,8 @@ getWorks();
 const ajouterElement = async (event) => {
   try {
     const workId = event.target.classList[0];
+    console.log(workId)
+    console.log(workId.split(" "))
     const url = `http://localhost:5678/api/works/${workId}`;
     const response = await fetch(url, {
       method: 'DELETE',
@@ -101,18 +103,28 @@ const getWorkModal = async() => {
     for (let i in data) {
       const figure = document.createElement("figure");
       const img = document.createElement("img");
-      const buttonModal = document.createElement('button')
+      const containerBin = document.createElement('div')
+      const bin = document.createElement('img')
+      const container = document.createElement('div')
+
       figure.setAttribute("class", "works");
       figure.setAttribute("class", data[i].category.name);
       img.setAttribute("src", data[i].imageUrl);
       img.setAttribute("alt", data[i].title);
+      img.setAttribute('width', '100px');
+      img.setAttribute('height', '100px');
       img.setAttribute("crossorigin", "anonymous");
-      buttonModal.innerHTML = 'Supprimer'
-      buttonModal.classList.add(data[i].id);
-      buttonModal.classList.add('btn-modal');
-      buttonModal.addEventListener("click", ajouterElement);
-
-      figure.append(img, buttonModal);
+      bin.setAttribute("src", "./assets/icons/bin.svg")
+      bin.setAttribute('class', "bin")
+      bin.setAttribute("alt", "bin")
+      container.setAttribute("class", "container")
+      containerBin.setAttribute('class', "delete-icon")
+      bin.setAttribute("class", data[i].id);
+      bin.addEventListener("click", ajouterElement);
+      container.appendChild(img)
+      container.appendChild(containerBin)
+      containerBin.appendChild(bin)
+      figure.append(container);
       galleryGridModal.append(figure);
 
       figures.push(figure)

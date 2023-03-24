@@ -2,6 +2,8 @@ const closeModal = document.querySelector('.close-modal')
 const openModal = document.querySelector(".open-modal")
 const modal = document.querySelector(".modal")
 const figureStyle = document.querySelector("figcaption")
+const stepModal0 = document.querySelector(".step-0-modal")
+const stepModal1 = document.querySelector(".step-1-modal")
 
 
 openModal.onclick = () => {
@@ -16,8 +18,10 @@ closeModal.onclick = () => {
     window.location.reload()
 }
 
-
-
+const hideStepModal = () => {
+    stepModal0.style.display ='none'
+    stepModal1.style.display ='block'
+}
 
 const envoyerImage = async () => {
   const errorDiv = document.getElementById('error')
@@ -53,6 +57,28 @@ const envoyerImage = async () => {
   }
 
 };
+
+const back = () => {
+  stepModal1.style.display="none";
+  stepModal0.style.display="block";
+}
+
+const fileInput = document.getElementById("image");
+const imageReplace = document.getElementById("imageUpload")
+const blockImageModal = document.querySelector(".block-image-modal")
+
+fileInput.addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.addEventListener("load", function () {
+      blockImageModal.style.display = "none";
+      imageReplace.src = this.result;
+    });
+    reader.readAsDataURL(file);
+  }
+});
+
 
 
 

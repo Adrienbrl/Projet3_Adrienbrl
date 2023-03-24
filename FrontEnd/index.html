@@ -88,24 +88,79 @@
 
     <!--modale galerie photo-->
     <div id="modal" class="modal">
-      <div class="modal-content">
-        <h3>Galerie Photo</h3>
+      <div class="step-0-modal">
+        <div class="close-container">
+          <span class="close-modal">&times;</span>
+        </div>
+        <h3 class="title-galerie-modal">Galerie Photo</h3>
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="gallery-flex-modal">
           <div class="container-img-modal">
             <!--images de l'api-->
           </div>
         </div>
-        <hr />
-        <button class="add-work">Ajouter une photo</button>
-        <button class="delete-work">Supprimer la galerie</button>
-        <button class="close-modal">Fermer la modal</button>
+        <div class="separator"></div>
+
+        <button class="add-photo-btn" onclick="hideStepModal()">
+          Ajouter une photo
+        </button>
+        <button class="delete-gallery-btn">Supprimer la galerie</button>
       </div>
-      <form>
-        <input type="file" id="image" name="image" />
-        <input type="text" id="title" name="title" placeholder="Titre" />
-        <div id="category"></div>
-        <p type="submit" onclick="envoyerImage()">Envoyer</p>
-      </form>
+      <div class="step-1-modal">
+        <div class="flex-container">
+          <div class="arrow-left" onclick="back()">
+            <img src="./assets/icons/arrowLeft.svg" />
+          </div>
+          <div class="close-container">
+            <span class="close-modal">&times;</span>
+          </div>
+        </div>
+        <h3 class="title-galerie-modal">Ajout photo</h3>
+        <br />
+        <br />
+        <div class="container-step-1">
+          <div class="modal-background">
+            <div>
+              <img
+                type="file"
+                id="imageUpload"
+                name="imageUpload"
+                class="image-upload-photo"
+                src="./assets/icons/photo.svg"
+                alt="photo"
+              />
+            </div>
+            <br />
+            <div class="block-image-modal">
+              <div class="upload-btn-wrapper">
+                <button class="btn">+ Ajouter photo</button>
+                <input type="file" id="image" name="image" />
+              </div>
+              <div class="image-info">
+                <p>jpg, png : 4mo max</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-container">
+            <div class="form-group">
+              <label for="title">Titre</label>
+              <input type="text" id="title" name="title" />
+            </div>
+            <div class="form-group">
+              <label for="category">Catégorie</label>
+              <div id="category"></div>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <form>
+            <button class="submit-btn" onclick="envoyerImage()">Valider</button>
+          </form>
+        </div>
+      </div>
       <div id="error"></div>
     </div>
     <footer>
