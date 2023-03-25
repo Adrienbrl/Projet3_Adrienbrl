@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
+    <div class="edition-mode">
+      <p>
+        <img
+          class="edit-icon-white"
+          src="./assets/icons/edit-button-icon-white.svg"
+          alt="icone edition"
+        />Mode édition
+      </p>
+      <button type="submit">publier les changements</button>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -33,7 +43,7 @@
     <main>
       <section id="introduction">
         <figure>
-          <img src="./assets/images/sophie-bluel.png" alt="" />
+          <img src="./assets/images/sophie-bluel.png" alt="sophie-bluel" />
         </figure>
         <article>
           <h2>Designer d'espace</h2>
@@ -58,7 +68,12 @@
       <section id="portfolio">
         <div class="project-flex">
           <h2>Mes Projets</h2>
-          <button class="project-modification-text open-modal">Modifier</button>
+          <img
+            class="edit-icon"
+            src="./assets/icons/edit-button-icon.svg"
+            alt="icone edition"
+          />
+          <button class="project-modification-text open-modal">modifier</button>
         </div>
         <div class="filters-projects">
           <button class="filters-btn all active Tous">Tous</button>

@@ -8,6 +8,8 @@ const loginText = document.querySelector(".login-text");
 const logoutText = document.querySelector(".logout-text");
 const openModalText = document.querySelector(".open-modal");
 const filtersProjects = document.querySelector(".filters-projects");
+const editionMode = document.querySelector(".edition-mode");
+const editIcon = document.querySelector(".edit-icon");
 
 const worksApi = "http://localhost:5678/api/works";
 
@@ -16,11 +18,15 @@ if(sessionStorage.getItem("token")) {
   logoutText.style.display = "block"
   openModalText.style.display = "block"
   filtersProjects.style.display = 'none'
+  editionMode.style.display = "flex"
+  editIcon.style.display = "block"
 } else {
   loginText.style.display = "block"
   logoutText.style.display = "none"
   openModalText.style.display = "none"
   filtersProjects.style.display = 'flex'
+  editionMode.style.display = "none"
+  editIcon.style.display = "none"
 }
 
 const logout = () => {
