@@ -64,11 +64,9 @@ const getWorks = async() => {
 
 getWorks();
 
-const ajouterElement = async (event) => {
+const deleteProject = async (event) => {
   try {
     const workId = event.target.classList[0];
-    console.log(workId)
-    console.log(workId.split(" "))
     const url = `http://localhost:5678/api/works/${workId}`;
     const response = await fetch(url, {
       method: 'DELETE',
@@ -126,7 +124,7 @@ const getWorkModal = async() => {
       container.setAttribute("class", "container")
       containerBin.setAttribute('class', "delete-icon")
       bin.setAttribute("class", data[i].id);
-      bin.addEventListener("click", ajouterElement);
+      bin.addEventListener("click", deleteProject);
       container.appendChild(img)
       container.appendChild(containerBin)
       containerBin.appendChild(bin)
