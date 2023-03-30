@@ -105,7 +105,7 @@
     <div id="modal" class="modal">
       <div class="step-0-modal">
         <div class="close-container">
-          <span class="close-modal">&times;</span>
+          <span class="close-modal" onclick="closeModal()">&times;</span>
         </div>
         <h3 class="title-galerie-modal">Galerie Photo</h3>
         <br />
@@ -118,7 +118,6 @@
           </div>
         </div>
         <div class="separator"></div>
-
         <button class="add-photo-btn" onclick="hideStepModal()">
           Ajouter une photo
         </button>
@@ -130,7 +129,7 @@
             <img src="./assets/icons/arrowLeft.svg" />
           </div>
           <div class="close-container">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
           </div>
         </div>
         <h3 class="title-galerie-modal">Ajout photo</h3>
@@ -171,8 +170,8 @@
             </div>
           </div>
           <div class="separator"></div>
-          <form>
-            <button class="submit-btn" onclick="envoyerImage()">Valider</button>
+          <form onsubmit="envoyerImage(event)">
+            <button type="submit" class="submit-btn">Valider</button>
           </form>
         </div>
       </div>

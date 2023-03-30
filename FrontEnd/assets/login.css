@@ -16,6 +16,12 @@ body {
   line-height: 1;
 }
 
+.error-login {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 ol,
 ul {
   list-style: none;

@@ -1,10 +1,8 @@
-const closeModal = document.querySelector('.close-modal')
 const openModal = document.querySelector(".open-modal")
 const modal = document.querySelector(".modal")
 const figureStyle = document.querySelector("figcaption")
 const stepModal0 = document.querySelector(".step-0-modal")
 const stepModal1 = document.querySelector(".step-1-modal")
-
 
 openModal.onclick = () => {
     document.body.style.backgroundColor = '#00000041';
@@ -12,7 +10,7 @@ openModal.onclick = () => {
     getWorkModal()
 }
  
-closeModal.onclick = () => {
+closeModal = () => {
     document.body.style.backgroundColor = 'white';
     modal.style.display = 'none'; 
     window.location.reload()
@@ -23,7 +21,9 @@ const hideStepModal = () => {
     stepModal1.style.display ='block'
 }
 
-const envoyerImage = async () => {
+const envoyerImage = async (event) => {
+   event.preventDefault(); 
+   event.stopPropagation(); 
   const errorDiv = document.getElementById('error')
   const titleForm = document.getElementById('title').value;
   const selectorCategory = document.getElementById('selectorCategory');
@@ -42,24 +42,28 @@ const envoyerImage = async () => {
     formData.append('image', fichier);
     formData.append('title', title);
     formData.append('category', category);
-
-  const response = await fetch('http://localhost:5678/api/works/', {
+ 
+    await fetch('http://localhost:5678/api/works/', {
     method: 'POST',
     body: formData,
     headers: {
       'Accept': '*/*',
       'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
-  });
-
-  const responseData = await response.json();
+  })
+  
   }
-
 };
 
-const back = () => {
+const back = async () => {
   stepModal1.style.display="none";
   stepModal0.style.display="block";
+  const errorDiv = document.getElementById('error')
+  errorDiv.style.display = 'none'
+  document.querySelector(".container-img-modal").innerHTML = "";
+  document.querySelector("#category").innerHTML = "";
+  await getWorkModal()
+
 }
 
 const fileInput = document.getElementById("image");
@@ -73,6 +77,7 @@ fileInput.addEventListener("change", function () {
     reader.addEventListener("load", function () {
       blockImageModal.style.display = "none";
       imageReplace.src = this.result;
+      imageReplace.style.height = "200px"
     });
     reader.readAsDataURL(file);
   }

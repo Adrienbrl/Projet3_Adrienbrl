@@ -65,6 +65,7 @@ const getWorks = async() => {
 getWorks();
 
 const deleteProject = async (event) => {
+  event.preventDefault(); 
   try {
     const workId = event.target.classList[0];
     const url = `http://localhost:5678/api/works/${workId}`;
@@ -75,7 +76,10 @@ const deleteProject = async (event) => {
         "Authorization": "Bearer " + sessionStorage.getItem("token")
       },
     });
-
+    document.querySelector(".container-img-modal").innerHTML = "";
+    document.querySelector("#category").innerHTML = "";
+    await getWorkModal()
+    
     if (response.ok) {
       console.log(`L'élément avec l'ID ${workId} a été supprimé avec succès.`);
     } else {
