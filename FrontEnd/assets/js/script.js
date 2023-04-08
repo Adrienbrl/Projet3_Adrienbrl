@@ -79,6 +79,8 @@ const deleteProject = async (event) => {
     document.querySelector(".container-img-modal").innerHTML = "";
     document.querySelector("#category").innerHTML = "";
     await getWorkModal()
+    document.querySelector(".gallery").innerHTML = "";
+    await getWorks()
     
     if (response.ok) {
       console.log(`L'élément avec l'ID ${workId} a été supprimé avec succès.`);
